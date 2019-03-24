@@ -1,0 +1,44 @@
+.search-bar {
+    margin: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 75%;
+    border-radius: 5px;
+}
+.video-detail .details {
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid wheat;
+    border-radius: 4px;
+}
+.list-group-item {
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #eee;
+}
+.particles {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Courier New', 'Courier New',
+        Courier, monospace, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(
+        90deg,
+        rgb(53, 226, 238) 0%,
+        rgba(184, 90, 212, 0.973) 100%
+    );
+}
