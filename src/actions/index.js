@@ -5,4 +5,3 @@ export const userInput = input => ({
     payload: input,
 });
 
-//"build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
