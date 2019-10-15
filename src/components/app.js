@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SearchBar from './SearchBar/searchBar';
 import YTSearch from 'youtube-api-search';
 import VideoList from './VideoList/videoList';
@@ -6,10 +7,26 @@ import VideoDetail from './VideoDetail/videoDetail';
 import _ from 'lodash';
 import Particles from 'react-particles-js';
 import backgroundParticles from './BackgroundParticles/backgroundParticles';
+import { userInput } from '../actions/index';
 
-const API_KEY = 'AIzaSyDfqLtk0gSjf8AtHvIgie2frbMwHV_eFmU';
+/* const API_KEY = 'AIzaSyDfqLtk0gSjf8AtHvIgie2frbMwHV_eFmU'; */
+const API_KEY = 'AIzaSyAgEh5eT0bzPKYtzcupIQ3J_Vr0as0IijY';
 
-export default class App extends Component {
+const mapStateToProps = state => {
+    return {
+        searchChange: state.userInp,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onActionChange: event => {
+            dispatch(userInput(event.target.value));
+        },
+    };
+};
+
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,11 +40,12 @@ export default class App extends Component {
     myVideoSearch(term) {
         YTSearch({ key: API_KEY, term: term }, videos => {
             this.setState({ videos: videos, selectedVideo: videos[0] });
-            console.log(videos);
+            /* console.log(this.state.selectedVideo); */
         });
     }
 
     render() {
+        const { searchChange, onActionChange } = this.props;
         const myVideoSearch = _.debounce(
             term => this.myVideoSearch({ term }),
             2
@@ -47,3 +65,9 @@ export default class App extends Component {
         );
     }
 }
+
+/* export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App); */
+export default App;
